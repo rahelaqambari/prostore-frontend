@@ -10,7 +10,7 @@ type Product = {
 }
 
 import React from 'react'
-import { GetProduct } from '../../../../Actions/product.action';
+import { GetProduct } from '../../../lib/Actions/product.action';
 
 
 async function page() {
