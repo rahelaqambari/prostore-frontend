@@ -11,11 +11,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import UserButton from "./user-button";
+import SearchInput from "./searcinput";
 
 function Menu() {
   return (
     <div className="flex justify-end gap-3">
-      <nav className="hidden md:flex w-full  max-w-xs gap-1">
+      <nav className="hidden md:flex w-full items-center  max-w-lg gap-1">
+        <SearchInput />
         <ToggleTheme />
         <Button asChild variant="ghost">
           <Link href="/cart">

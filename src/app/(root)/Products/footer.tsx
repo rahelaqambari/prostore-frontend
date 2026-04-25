@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className="flex-center border-t w-full">
       <div className="p-5">
-        {currentYear} {APP_NAME}. All Right Reserved
+        {currentYear} {APP_NAME} |  All Right Reserved
       </div>
     </footer>
   );

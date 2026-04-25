@@ -7,11 +7,10 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuSeparator,
   DropdownMenuLabel,
-} from "@/components/ui/ui/dropdown-menu";
-// import { DropdownMenuTrigger } from "@base-ui/react/";
+} from "@/components/ui/dropdown-menu";
 import { MoonIcon, SunIcon, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
-// import { useTheme } from "next-themes";
+
 import React, { useEffect, useState } from "react";
 
 function ToggleTheme() {
