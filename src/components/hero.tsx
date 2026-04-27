@@ -5,9 +5,11 @@ import Slider from 'react-slick';
 function Hero() {
     const settings = {
         dots: true,
+        autoplay: true,
+        // infinite: true,
     }
   return (
-    <div className='mx-auto w-full'>
+    <div className='w-full'>
         <Slider {...settings}>
       <div>
         <Image
@@ -20,7 +22,7 @@ function Hero() {
       </div>
       <div>
         <Image
-        src="/images/banner-1.jpg"
+        src="/images/banner-2.jpg"
         alt='banner-1'
         className='object-cover w-full h-72'
         height={100}
