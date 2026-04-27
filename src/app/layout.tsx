@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Figtree } from "next/font/google";
+import { Geist, Geist_Mono, Figtree, Inter } from "next/font/google";
 import "./globals.css";
 import { APP_NAME } from "../../constants";
 import { cn } from "@/lib/utils";
 import Header from "@/components/ui/shared/header";
 import Footer from "./(root)/Products/footer";
+import { ThemeProvider } from "next-themes";
 
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-geist-inter",
   subsets: ["latin"],
 });
 
@@ -34,9 +35,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", figtree.variable)}
+      suppressHydrationWarning
+      className={cn("h-full", "antialiased --font-sans", )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body >
+      <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem
+      disableTransitionOnChange
+      >
+    {children}
+    </ThemeProvider>
+    </body>
     </html>
   );
 }

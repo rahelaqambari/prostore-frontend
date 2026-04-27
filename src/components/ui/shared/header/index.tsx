@@ -11,7 +11,7 @@ import { APP_NAME } from "../../../../../constants";
 function Header() {
   return (
     <header className="w-full border-b">
-      <div className="flex-between ">
+      <div className="wrapper flex-between ">
         <div className="flex-start">
           <Link href="/" className="flex-start">
             <Image
