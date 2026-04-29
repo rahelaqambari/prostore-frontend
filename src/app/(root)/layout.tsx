@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { APP_DESCRIPTION } from "../../../constants";
-import Header from "../../components/ui/shared/header";
+import Header from "../../components/header";
 import Footer from "./Products/footer";
 
 export const metadata: Metadata = {
