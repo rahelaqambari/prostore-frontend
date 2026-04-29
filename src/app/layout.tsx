@@ -36,7 +36,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full", "antialiased --font-sans", )}
+      className={cn("h-full", "antialiased --font-sans" )}
     >
       <body >
       <ThemeProvider

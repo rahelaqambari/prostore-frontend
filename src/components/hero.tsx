@@ -9,22 +9,22 @@ function Hero() {
         // infinite: true,
     }
   return (
-    <div className='w-full'>
+    <div className='w-6xl mx-auto h-72'>
         <Slider {...settings}>
-      <div>
+      <div className='w-full h-full'>
         <Image
         src="/images/banner-1.jpg"
         alt='banner-1'
-        className='object-cover w-full h-72'
+        className=' w-full h-full'
         height={100}
         width={1000}
         />
       </div>
-      <div>
+      <div className='w-full h-full'>
         <Image
         src="/images/banner-2.jpg"
         alt='banner-1'
-        className='object-cover w-full h-72'
+        className='w-full h-full'
         height={100}
         width={1000}
         />
