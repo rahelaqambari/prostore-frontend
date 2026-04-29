@@ -29,7 +29,7 @@ export default function Home() {
   ]
   return (
     <div className="">
-      <Hero />
+      {/* <Hero /> */}
       <ProductList productlist = {product} title="Newest Arrivel" />
     </div>
   );
