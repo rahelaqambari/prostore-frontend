@@ -9,12 +9,13 @@ function ProductCard({product}: {product: any}) {
   <Card>
     <CardHeader className='p-0'>
       <Link href={`product/${product.id}`}>
-      <Image src={`/storage/${product.images[0].img_url}`} alt={product.name} height={300} width={300} />
+      <Image src={`http://localhost:8000/storage/${product.images[0].img_url}`} alt={product.name} height={300} width={300} />
       </Link>
       <h1>{product.name}</h1>
     </CardHeader>
-    <CardContent>
-        <h1>{product.id}</h1>
+    <CardContent className='px-4 py-2 grid gap-2'>
+      <span className='text-xs font-normal'>{product.brand}</span>
+      <span className='text-xs font-medium'>{product.name}</span>
     </CardContent>
   </Card>
   )
