@@ -17,7 +17,7 @@ function Hero() {
         alt='banner-1'
         className=' w-full h-full'
         height={100}
-        width={1000}
+        width={100}
         />
       </div>
       <div className='w-full h-full'>
@@ -26,7 +26,7 @@ function Hero() {
         alt='banner-1'
         className='w-full h-full'
         height={100}
-        width={1000}
+        width={100}
         />
       </div>
       </Slider>
