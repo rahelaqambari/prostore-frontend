@@ -5,30 +5,13 @@ import Slider from 'react-slick';
 function Hero() {
     const settings = {
         dots: true,
-        autoplay: true,
+        // autoplay: true,
         // infinite: true,
     }
   return (
-    <div className='w-6xl mx-auto h-72'>
+    <div className='w-full mx-auto h-72'>
         <Slider {...settings}>
-      <div className='w-full h-full'>
-        <Image
-        src="/images/banner-1.jpg"
-        alt='banner-1'
-        className=' w-full h-full'
-        height={100}
-        width={100}
-        />
-      </div>
-      <div className='w-full h-full'>
-        <Image
-        src="/images/banner-2.jpg"
-        alt='banner-1'
-        className='w-full h-full'
-        height={100}
-        width={100}
-        />
-      </div>
+         <Image src="/images/banner-1.jpg" alt='banner-1' height={100} width={1000}/>
       </Slider>
     </div>
   )

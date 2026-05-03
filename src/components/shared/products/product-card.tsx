@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, CardHeader } from '../ui/card'
+import { Card, CardContent, CardHeader } from '../../ui/card'
 import Link from 'next/link'
 import Image from 'next/image'
 import ProductPrice from './product-price';
@@ -12,6 +12,7 @@ function ProductCard({product}: {product: any}) {
       <Link href={`product/${product.id}`}>
       <Image src={`http://localhost:8000/storage/${product.images[0].img_url}`}
        alt={product.name} 
+       className='h-full w-full object-cover'
        height={300}
         width={300}
         unoptimized

@@ -3,8 +3,6 @@ import { Geist, Geist_Mono, Figtree, Inter } from "next/font/google";
 import "./globals.css";
 import { APP_NAME } from "../../constants";
 import { cn } from "@/lib/utils";
-import Header from "@/components/header";
-import Footer from "./(root)/Products/footer";
 import { ThemeProvider } from "next-themes";
 
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
@@ -36,7 +34,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full", "antialiased --font-sans" )}
+      className={cn("h-full", "antialiased --font-sans",'inter.variable' )}
     >
       <body >
       <ThemeProvider

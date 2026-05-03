@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { APP_DESCRIPTION } from "../../../constants";
-import Header from "../../components/header";
+import Header from "../../components/shared/header";
 import Footer from "./Products/footer";
 
 export const metadata: Metadata = {
@@ -14,9 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-   <div className="flex flex-col h-screen">
+   <div className="flex flex-col h-screen w-full">
     <Header />
-    <main className="flex-1 wrapper"> {children}</main>
+    <main className="wrapper"> {children}</main>
     <Footer />
    </div>
   );

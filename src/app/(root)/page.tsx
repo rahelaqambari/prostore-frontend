@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Footer from "./Products/footer";
-import Header from "../../components/header";
+import Header from "../../components/shared/header";
 import Hero from "@/components/hero";
-import ProductList from "@/components/products/product-list";
+import ProductList from "@/components/shared/products/product-list";
 import { GetProducts } from "@/lib/Actions/product.action";
 
 export default async function Home() {
-  const product = await GetProducts();
+  const products = await GetProducts();
   return (
     <div className="">
-      {/* <Hero /> */}
-      <ProductList productlist = {product} title="Newest Arrivel" />
+      <Hero />
+      <ProductList limit={4}  productlist={products} title="Newest Arrivel" />
     </div>
   );
 }
