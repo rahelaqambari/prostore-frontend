@@ -12,7 +12,7 @@ function Loading() {
             alignItems: "center",
         }
     }>
-      <Image src="/loader.gif" alt='Loading ...' height={52} width={52} /> 
+      <Image src="/loader.gif" alt='Loading ...' height={64} width={64} /> 
     </div>
   )
 }

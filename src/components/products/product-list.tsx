@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductCard from './product-card'
+import { Button } from '../ui/button'
 
 function ProductList({productlist, title}: {productlist: any, title: string}) {
   return (
@@ -9,6 +10,9 @@ function ProductList({productlist, title}: {productlist: any, title: string}) {
       {productlist.lenght > 0 && productlist.map( (product :any)=>(
        <ProductCard key={product.id} product={product} />
       ))} 
+      </div>
+      <div className='w-full flex justify-center'>
+        <Button variant={'outline'}>All Products</Button>
       </div>
     </div>
   )

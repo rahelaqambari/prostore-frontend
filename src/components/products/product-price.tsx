@@ -1,9 +1,12 @@
 import React from 'react'
 
-function ProductPrice() {
+function ProductPrice({price}: {price: string}) {
+  const [int,float] = price.split(".");
   return (
-    <div className='h-screen w-fit flex flex-col-reverse gap-y-px'>
-      
+    <div className='text-2xl'>
+      <span className='text-xs align-super'>AFG</span>
+      {int}
+      <span className='text-xs align-super'>.{float}</span>
     </div>
   )
 }
