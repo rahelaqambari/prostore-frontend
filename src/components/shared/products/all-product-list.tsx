@@ -1,7 +1,6 @@
 import React from 'react'
 import ProductCard from './product-card'
 import { Button } from '../../ui/button'
-import Link from 'next/link'
 
 function ProductList({limit, productlist, title}: {limit: number,productlist: any, title: string}) {
   return (
@@ -13,9 +12,7 @@ function ProductList({limit, productlist, title}: {limit: number,productlist: an
       ))} 
       </div>
       <div className='w-full flex justify-center'>
-        <Link href="/products">
         <Button variant={'outline'}>All Products</Button>
-        </Link>
       </div>
     </div>
   )
