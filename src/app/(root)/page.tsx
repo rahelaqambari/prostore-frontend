@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Footer from "./Products/footer";
+import Footer from "../../components/footer";
 import Header from "../../components/shared/header";
 import Hero from "@/components/hero";
 import ProductList from "@/components/shared/products/product-list";

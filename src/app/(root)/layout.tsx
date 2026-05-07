@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { APP_DESCRIPTION } from "../../../constants";
 import Header from "../../components/shared/header";
-import Footer from "./Products/footer";
+import Footer from "../../components/footer";
 
 export const metadata: Metadata = {
   title: "Home",
