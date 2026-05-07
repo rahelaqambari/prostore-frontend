@@ -1,26 +1,14 @@
-type Product = {
-    id: number,
-    name: string,
-    stock: number,
-    price: number,
-    description: string,
-    brand: string,
-    category: string,
-    images: string[],
-}
-
+import AllProductList from '@/components/shared/products/all-product-list';
+import { GetProducts } from '@/lib/Actions/product.action'
 import React from 'react'
-import { GetProduct } from '../../../lib/Actions/product.action';
 
-
-async function page() {
-    const data = await GetProduct();
-    console.log('data');
+async function  ProductPage() {
+  const products = await GetProducts();
   return (
     <div>
-      
+      <AllProductList productlist={products} title='All Products' />
     </div>
   )
 }
 
-export default page
+export default ProductPage
