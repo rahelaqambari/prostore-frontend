@@ -6,8 +6,7 @@ import Link from 'next/link'
 import { getAllProducts, GetProducts } from '@/lib/Actions/product.action';
 import { ProductInfo } from '@/app/(root)/Types/Index';
 
-function AllProductList({limit, title}:
-     {limit: number; title?: string}) {
+function AllProductList({ title}:{title?: string}) {
 
          const [link, setlink] = useState("http://localhost:8000/api/products?page=1");
          const [list, setlist] = useState<any>([]);
