@@ -4,16 +4,28 @@ import React from 'react'
 import Slider from 'react-slick';
 function Hero() {
     const settings = {
-        dots: true,
-        // autoplay: true,
-        // infinite: true,
-    }
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+};
   return (
-    <div className='w-full mx-auto h-72'>
-        <Slider {...settings}>
-         <Image src="/images/banner-1.jpg" alt='banner-1' height={100} width={1000}/>
-      </Slider>
+<div className="w-full overflow-hidden">
+  <Slider {...settings}>
+
+    <div>
+      <Image
+        src="/images/banner-1.jpg"
+        alt="banner1"
+        width={1400}
+        height={400}
+        className="w-full h-72 object-cover"
+      />
     </div>
+  </Slider>
+</div>
   )
 }
 
