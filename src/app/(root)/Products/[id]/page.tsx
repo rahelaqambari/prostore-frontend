@@ -22,7 +22,10 @@ async function DetailsPage({params}:{params: Promise<{id:string}>}) {
       </div>
       <div className='p-4 space-y-2 border rounded-md h-fit'>
       <div className='flex-between'>
-
+        <h1 className='text-medium font-serif'>{product.brand}</h1>
+        <h1 className='text-medium font-serif'>{product.category}</h1>
+      </div>
+      <div className='w-full items-start'>
       </div>
       </div>
       <div>
