@@ -3,13 +3,14 @@ import React from "react";
 import { APP_NAME } from "../../constants";
 
 function Footer() {
-  const currentYear = new Date().getFullYear();
   return (
-    <footer className="flex-center border-t w-full">
-      <div className="p-5">
-        {currentYear} {APP_NAME} |  All Right Reserved
+    <div className="w-full border-t ">
+      <div className="wrapper flex-center">
+        <p>
+          {new Date().getFullYear()} &copy; {APP_NAME} All right reserved.
+        </p>
       </div>
-    </footer>
+    </div>
   );
 }
 

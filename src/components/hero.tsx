@@ -1,32 +1,38 @@
 "use client";
-import Image from 'next/image';
-import React from 'react'
-import Slider from 'react-slick';
+import Image from "next/image";
+import React from "react";
+import Slider from "react-slick";
 function Hero() {
-    const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-};
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 2500,
+    autoplay: true,
+  };
   return (
-<div className="w-full overflow-hidden">
-  <Slider {...settings}>
-
-    <div>
-      <Image
-        src="/images/banner-1.jpg"
-        alt="banner1"
-        width={1400}
-        height={400}
-        className="w-full h-72 object-cover"
-      />
+    <div className="mx-auto w-full">
+      <Slider {...settings}>
+        <div>
+          <Image
+            src="/images/banner-4.jpg"
+            alt="banner 1 image"
+            className="object-cover h-72 w-full"
+            height={1000}
+            width={1000}
+          />
+        </div>
+        <div>
+          <Image
+            src="/images/banner-3.jpg"
+            alt="banner 2 image"
+            className="object-cover w-full h-72"
+            height={1000}
+            width={1000}
+          />
+        </div>
+      </Slider>
     </div>
-  </Slider>
-</div>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

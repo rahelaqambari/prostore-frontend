@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-function ProductPrice({price}: {price: string}) {
-  const [int,float] = price.split(".");
+function ProductPrice({ price }: { price: string }) {
+  const [int, float] = price.split(".");
   return (
-    <div className='text-2xl'>
-      <span className='text-xs align-super'>AFG</span>
+    <div className="text-2xl">
+      <span className="text-xs align-super">AFN</span>
       {int}
-      <span className='text-xs align-super'>.{float}</span>
+      <span className="text-xs align-super">.{float}</span>
     </div>
-  )
+  );
 }
 
-export default ProductPrice
+export default ProductPrice;

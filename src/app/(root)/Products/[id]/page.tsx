@@ -1,5 +1,5 @@
+import ProductImages from '@/components/shared/products/product-images';
 import ProductPrice from '@/components/shared/products/product-price';
-import ProductImages from '@/components/shared/products/products-images';
 import { GetProducts } from '@/lib/Actions/product.action';
 import React from 'react'
 
