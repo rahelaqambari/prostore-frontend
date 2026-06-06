@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ProductCard from "./product-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { getAllProducts, getProducts } from "@/lib/actions/product.action";
 import { ProductInfo } from "@/types";
+import { getAllProducts } from "@/lib/Actions/product.action";
+import ProductCard from "./product-card";
 
 function AllProductList({
   limit,
