@@ -7,7 +7,7 @@ function Footer() {
     <div className="w-full border-t ">
       <div className="wrapper flex-center">
         <p>
-          {new Date().getFullYear()} &copy; {APP_NAME} All right reserved.
+          {new Date().getFullYear()} | {APP_NAME} All right reserved.
         </p>
       </div>
     </div>

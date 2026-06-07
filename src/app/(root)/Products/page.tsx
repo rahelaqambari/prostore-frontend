@@ -1,12 +1,11 @@
-import AllProductList from "@/components/shared/products/all-product-list"
+import AllProductList from "@/components/shared/products/all-product-list";
 
-async function  ProductPage() {
- 
+async function ProductPage() {
   return (
     <div>
-      <AllProductList title='All Products' />
+      <AllProductList title="All Products" />
     </div>
-  )
+  );
 }
 
-export default ProductPage
+export default ProductPage;

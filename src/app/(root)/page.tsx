@@ -1,16 +1,14 @@
-import Image from "next/image";
-import Footer from "../../components/footer";
-import Header from "../../components/shared/header";
-import ProductList from "@/components/shared/products/product-list";
-import { GetProducts } from "@/lib/Actions/product.action";
 import Hero from "@/components/Hero";
+import ProductList from "@/components/shared/products/product-list";
+import { getProducts } from "@/lib/actions/product.action";
+import Image from "next/image";
 
 export default async function Home() {
-  const products = await GetProducts();
+  const products = await getProducts();
   return (
-    <div className="">
+    <div>
       <Hero />
-      <ProductList limit={4}  productList={products} title="Newest Arrivel" />
+      <ProductList limit={4} productList={products} title="Newest Arrivals" />
     </div>
   );
 }

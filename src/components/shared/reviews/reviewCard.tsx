@@ -2,7 +2,7 @@ import { Calendar, TimerReset } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import StarRating from './rating'
-import { formatDistanceToNow } from 'date-fns'
+// import { formatDistanceToNow } from 'date-fns'
 function ReviewCard({review}:{review:any}) {
   return (
     <div  className=' border-b border-stone-400 py-2 flex flex-col gap-4'>
@@ -21,7 +21,7 @@ function ReviewCard({review}:{review:any}) {
         </div>
         <div className=' flex justify-end text-stone-400 items-center w-full'>
             <Calendar size={20} />
-            {formatDistanceToNow(review.created_at , {addSuffix: true})}
+            {/* {formatDistanceToNow(review.created_at , {addSuffix: true})} */}
             </div>
     </div>
   )
