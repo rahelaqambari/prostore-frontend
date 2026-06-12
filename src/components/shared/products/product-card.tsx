@@ -5,13 +5,13 @@ import React from "react";
 import ProductPrice from "./product-price";
 
 function ProductCard({ product }: { product: any }) {
-  // console.log(product.images[0].img_url);
+  console.log(product.images[0].img_url);
   return (
     <Card>
       <CardHeader className="p-0 h-72">
         <Link href={`products/${product.id}`}>
           <Image
-            src={`http://localhost:8000/storage/${product.pro_images}`}
+            src={`http://localhost:8000/storage/${product.images[0].img_url}`}
             alt={product.name}
             className="h-full w-full object-cover"
             height={300}
