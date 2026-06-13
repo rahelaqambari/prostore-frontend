@@ -11,6 +11,18 @@ export default async function login(
     });
     const response = await data.json();
     console.log(response);
-   
     return response ;
+}
+
+export async function getUser(token:string) {
+    const data = await fetch(`http://localhost:8000/api/user`,{
+         headers:{
+            accept : "application/json",
+        },
+        method: "POST"
+    });
+    const response = await data.json();
+
+    return response;
+    
 }
