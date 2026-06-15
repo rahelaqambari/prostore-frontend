@@ -49,21 +49,18 @@ export default function CardDemo() {
             <div className="grid gap-2">
               <div className="flex items-center">
                 <Label htmlFor="password">Password</Label>
-                <a
-                  href="#"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                >
-                  Forgot your password?
-                </a>
               </div>
               <Input id="password" type="password" required />
             </div>
+            <a href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline" >
+                  Forgot your password?
+                </a>
           </div>
         </form>
       </CardContent>
       <CardFooter className="flex-col gap-2">
         <Button type="submit" className="w-full">
-          Login
+          Sign Up
         </Button>
         
       </CardFooter>

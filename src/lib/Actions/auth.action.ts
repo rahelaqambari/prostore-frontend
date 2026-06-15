@@ -26,3 +26,17 @@ export async function getUser(token:string) {
     return response;
     
 }
+
+export async function SignUp(preves:unknown , formData:FormData) {
+    const data = await fetch(`http://localhost:8000/api/signup`,{
+         headers:{
+            accept : "application/json",
+        },
+        method: "POST",
+        body: formData,
+    });
+    const response = await data.json();
+
+    return response;
+    
+}
