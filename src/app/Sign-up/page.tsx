@@ -2,18 +2,13 @@
 import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import Image from "next/image"
-import Link from "next/link"
-import { APP_NAME } from "../../../constants"
 import { useActionState } from "react"
 import { SignUp } from "@/lib/Actions/auth.action"
 
@@ -38,6 +33,7 @@ export default function Signup() {
             <div className="grid gap-2">
               <Label htmlFor="email">Name</Label>
               <Input
+              name="name"
                 id="name"
                 type="text"
                 placeholder="my name is..."
@@ -47,6 +43,7 @@ export default function Signup() {
              <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
+              name="email"
                 id="email"
                 type="email"
                 placeholder="email@example.com"
@@ -57,11 +54,14 @@ export default function Signup() {
               <div className="flex items-center">
                 <Label htmlFor="password">Password</Label>
               </div>
-              <Input id="password" type="password" required />
+              <Input
+              name="password"
+               id="password" type="password" required />
             </div>
              <div className="grid gap-2">
               <Label htmlFor="email">Confirm Passwrod</Label>
               <Input
+              name="confirmpassword"
                 id="confirmpassword"
                 type="confirmpassword"
                 required
@@ -75,6 +75,7 @@ export default function Signup() {
               <div className="grid gap-2">
               <Label htmlFor="phone_number">Phone Number</Label>
               <Input
+              name="phone_number"
                 id="phone_number"
                 type="phone_number"
                 placeholder="+ 93 "
@@ -82,14 +83,11 @@ export default function Signup() {
               />
               </div>
             </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full my-3">
           Sign Up
         </Button>
-        
-      </CardFooter>
+        </form>
+      </CardContent>
     </Card>
     </div>
   )
