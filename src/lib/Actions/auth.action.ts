@@ -33,8 +33,8 @@ export async function SignUp(preves:unknown , formData:FormData) {
         const confirmpassword = formData.get("confirmpassword");
         if(password !== confirmpassword){
             return {
-                Message: 'passwords not match',
-                Status: false
+                message: 'passwords not match',
+                status: false
             }
         }
         else{
@@ -47,15 +47,15 @@ export async function SignUp(preves:unknown , formData:FormData) {
     });
      const response = await data.json();
      return {
-        Message: response,
-        Status: true,
+        message: response,
+        status: true,
      };
     }
 }
     catch($err){
     return {
-        Message: "Unable to sign up",
-        Status: false, 
+        message: "Unable to sign up",
+        status: false, 
     }
     }
     
