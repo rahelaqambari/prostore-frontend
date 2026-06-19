@@ -60,3 +60,39 @@ export async function SignUp(preves:unknown , formData:FormData) {
     }
     
 }
+
+
+
+export async function CreateToken(preves:unknown , formData:FormData) {
+    try{
+        const token = formData.get("token");
+        const rememberToken = formData.get("rememberToken");
+        if(token !== rememberToken){
+            return {
+                message: 'The User IS Authorized',
+                status: false
+            }
+        }
+        else{
+    const data = await fetch("http://localhost:8000/api/token",{
+        method: "POST",
+        body: formData,
+         headers:{
+            accept : "application/json",
+        },
+    });
+     const response = await data.json();
+     return {
+        message: response,
+        status: true,
+     };
+    }
+}
+    catch($err){
+    return {
+        message: "Unable to sign up",
+        status: false, 
+    }
+    }
+    
+}
