@@ -28,7 +28,7 @@ export default function Signup() {
            <CardTitle className="text-2xl font-serif">Sign Up</CardTitle>
         </div>
         <CardDescription>
-          Enter your info below to login to your account
+          Enter your info below to sign up 
         </CardDescription>
       </CardHeader>
       <CardContent>

@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { createReview } from '@/lib/actions/review.action'
+import { createReview } from '@/lib/Actions/review.action'
 
 import { Star } from 'lucide-react'
 import React, { useActionState} from 'react'

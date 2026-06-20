@@ -5,7 +5,7 @@ export async function getProducts() {
 }
 
 export async function getAllProducts(url: string) {
-  const data = await fetch(url);
+  const data = await fetch('http://localhost:8000/api/products');
   const response = await data.json();
-  return response;
+  return response
 }
