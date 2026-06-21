@@ -13,24 +13,24 @@ import { useActionState } from "react"
 import { SignUp } from "@/lib/Actions/auth.action"
 import Image from "next/image";
 import { APP_NAME } from "../../../constants";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 export default function Signup() {
   const [data, func,pending] = useActionState(SignUp, {
     message: "",
     status: false
   });
-  const router = useRouter();
-  if (data.status){
-    localStorage.setItem("token", data.message.message);
-    router.push("/")
-  }
+  // const router = useRouter();
+  // if (data.status){
+  //   localStorage.setItem("token", data.message.message);
+  //   router.push("/")
+  // }
   return (
     <div className=" w-full h-screen flex justify-center items-center">
            <Card className="w-full max-w-lg">
       <CardHeader>
         <div className="w-full flex justify-between ">
-          <Image src="/images/logo.svg" alt={APP_NAME} className="justify-center items-center mx-auto" height={42} width={42} />
+          {/* <Image src="/images/logo.svg" alt={APP_NAME} className="justify-center items-center mx-auto" height={42} width={42} /> */}
            <CardTitle className="text-2xl font-serif">Sign Up</CardTitle>
         </div>
         <CardDescription>
