@@ -13,12 +13,18 @@ import { useActionState } from "react"
 import { SignUp } from "@/lib/Actions/auth.action"
 import Image from "next/image";
 import { APP_NAME } from "../../../constants";
+import { useRouter } from "next/router";
 
 export default function Signup() {
   const [data, func,pending] = useActionState(SignUp, {
     message: "",
     status: false
-  })
+  });
+  const router = useRouter();
+  if (data.status){
+    localStorage.setItem("token", data.message.message);
+    router.push("/")
+  }
   return (
     <div className=" w-full h-screen flex justify-center items-center">
            <Card className="w-full max-w-lg">
@@ -87,7 +93,7 @@ export default function Signup() {
               />
               </div>
             </div>
-        <Button  type="submit" className="w-full my-3">
+        <Button disabled={pending}  type="submit" className="w-full my-3">
           {pending ?'Signing Up' : 'Sign Up'}
         </Button>
         </form>
