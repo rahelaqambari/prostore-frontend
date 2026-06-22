@@ -7,9 +7,8 @@ import React, { useState } from 'react'
 function Dashboard() {
     const [showText, setShowText] = useState(true);
   return (
-    <div className="w-full flex  min-h-screen gap-1">
-         <div className={` ${showText? 'max-w-full w-3xs' : 'w-fit'}`}>
-          
+    <div className="w-full bg-stone-50 flex  min-h-screen justify-start gap-1">
+         <div className={` ${showText? 'w-3xs' : 'w-fit'}`}>
          <DashboardSidebar showText={showText}/>
          </div>
          <MainSection setShowText={setShowText} showText={showText}/>
