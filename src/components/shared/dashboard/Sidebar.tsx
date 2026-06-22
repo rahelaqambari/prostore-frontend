@@ -6,7 +6,7 @@ import Image from 'next/image';
 function DashboardSidebar({showText}: {showText: boolean}) {
   return (
     <div>
-        <Card className={`flex flex-col rounded-none justify-between min-h-screen transition-all duration-300 px-2 py-1 ${showText? 'max-w-3xs' : 'w-fit'}`}>
+        <Card className={`flex flex-col w-full rounded-none justify-between min-h-screen transition-all duration-300 px-2 py-1 ${showText? 'max-w-3xs' : 'w-fit'}`}>
                 <div className="">
                 <CardHeader className='p-0'>
                     <CardTitle className='flex w-fit gap-1 items-center'>
