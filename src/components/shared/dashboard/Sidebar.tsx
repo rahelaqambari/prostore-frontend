@@ -1,8 +1,8 @@
 import React from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-// import {ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { LayoutDashboardIcon, Package, ScanEye, ShoppingCart, SquareUserRound } from 'lucide-react'
 import Image from 'next/image';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 function DashboardSidebar({showText}: {showText: boolean}) {
   return (
     <div>
@@ -17,7 +17,7 @@ function DashboardSidebar({showText}: {showText: boolean}) {
                     </CardTitle>
                     </CardHeader>
                     <CardContent className=' p-0 mt-4'>
-                    {/* <ScrollArea className='flex flex-col'> */}
+                    <ScrollArea className='flex flex-col'>
                         <div className=" flex flex-col space-y-4">
                         {/* Div1 */}
                         <div className="flex space-x-2 items-center w-fit">
@@ -45,8 +45,8 @@ function DashboardSidebar({showText}: {showText: boolean}) {
                         <span className={`${showText ? 'block' : 'hidden'}`}>Reviews</span>
                         </div>
                         </div>
-                        {/* <ScrollBar orientatin='vertical'></ScrollBar> */}
-                    {/* </ScrollArea> */}
+                        <ScrollBar orientation='vertical'></ScrollBar>
+                    </ScrollArea> 
                     </CardContent>
                     </div>
                     <div className="">

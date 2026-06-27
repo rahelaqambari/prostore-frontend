@@ -1,4 +1,4 @@
-import { ArrowUpRight, CircleDollarSign } from 'lucide-react'
+import { ArrowUpRight, CircleDollarSign, ShoppingBasket, Star, UserCheckIcon } from 'lucide-react'
 import React from 'react'
 
 function OverAllReport() {
@@ -37,8 +37,8 @@ function OverAllReport() {
          <div className='border-r  border-gray-300 m-6'>
             <div className='flex flex-col space-y-3'>
                 <span className='flex gap-1 items-center dark:text-stone-50 '>
-                    <CircleDollarSign size={18}/>
-                    Monthly Revenue
+                    <Star size={18}/>
+                    Review
                 </span>
                 <span>
                     4000 Previous Month
@@ -52,15 +52,15 @@ function OverAllReport() {
          <div className='border-r  border-gray-300 m-6'>
             <div className='flex flex-col space-y-3'>
                 <span className='flex gap-1 items-center dark:text-stone-50 '>
-                    <CircleDollarSign size={18}/>
-                    Monthly Revenue
+                    <UserCheckIcon size={18}/>
+                    Customer
                 </span>
                 <span>
                     4000 Previous Month
                 </span>
                 <span className='text-2xl font-bold'>60000</span>
                 <span className='flex gap-1 items-center text-xs'>
-                    <ArrowUpRight size={18} className='text-green-600'/>
+                    <ShoppingBasket size={18} className='text-green-600'/>
                 </span>
             </div>
         </div>
