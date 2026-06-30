@@ -1,70 +1,30 @@
-import { ArrowUpRight, CircleDollarSign, ShoppingBasket, Star, UserCheckIcon } from 'lucide-react'
-import React from 'react'
+import { ArrowUpRight, CircleDollarSign, DollarSign, Package, ShoppingBasket, Star, User } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
+import MonthlyPreviewReport from './MonthlyPreviewReport'
+import CustomerReport from './CustomerReport'
 
 function OverAllReport() {
+    
   return (
-    <div className='max-w-6xl bg-white dark:bg-gray-400 w-full p-5 my-4 mx-5 flex border m-7'>
-        <div className='border-r  border-gray-300 m-6'>
-            <div className='flex flex-col space-y-3'>
-                <span className='flex gap-1 items-center dark:text-stone-50 '>
-                    <CircleDollarSign size={18}/>
-                    Monthly Revenue
-                </span>
-                <span>
-                    4000 Previous Month
-                </span>
-                <span className='text-2xl font-bold'>60000</span>
-                <span className='flex gap-1 items-center text-xs'>
-                    <ArrowUpRight size={18} className='text-green-600'/>
-                </span>
+    <div className=' w-full mx-auto p-5'>
+        <div className=' max-w-6xl w-full dark:bg-stone-400/60 grid md:grid-cols-4 grid-cols-1 bg-white rounded-md border border-gray-200 p-4'>
+            <div className=' flex flex-col gap-3 border-r px-2'>
+                <span className=' text-xs text-gray-300 flex space-x-3 items-center gap-1.5'><DollarSign size={15}/> Monthly Revinue</span>
+                <span className=' text-gray-400 text-md'>4000 Previous month</span>
+                <span className=' text-2xl font-bold'>8000</span>
+                <span className=' flex space-x-2 text-sm items-center text-gray-300'><span className=' text-green-600 text-xs flex'><ArrowUpRight size={18}  />45.5% </span> vs Previous month</span>
             </div>
-        </div>
-         <div className='border-r  border-gray-300 m-6'>
-            <div className='flex flex-col space-y-3'>
-                <span className='flex gap-1 items-center dark:text-stone-50 '>
-                    <CircleDollarSign size={18}/>
-                    Monthly Revenue
-                </span>
-                <span>
-                    4000 Previous Month
-                </span>
-                <span className='text-2xl font-bold'>60000</span>
-                <span className='flex gap-1 items-center text-xs'>
-                    <ArrowUpRight size={18} className='text-green-600'/>
-                </span>
+          {/*  */}
+          <MonthlyPreviewReport/>
+           <CustomerReport/>
+            <div className=' flex flex-col gap-3 px-2'>
+                <span className=' text-xs text-gray-300 flex space-x-3 items-center gap-1.5 '><Package size={15}/> Total Product</span>
+                <span className=' text-gray-400 text-md'>25 Previous month</span>
+                <span className=' text-2xl font-bold'>0</span>
+                <span className=' flex space-x-2 text-sm items-center text-gray-300'><span className='text-xs text-green-600 flex'><ArrowUpRight size={18}  />45.5% </span> vs Previous month</span>
             </div>
-        </div>
-         <div className='border-r  border-gray-300 m-6'>
-            <div className='flex flex-col space-y-3'>
-                <span className='flex gap-1 items-center dark:text-stone-50 '>
-                    <Star size={18}/>
-                    Review
-                </span>
-                <span>
-                    4000 Previous Month
-                </span>
-                <span className='text-2xl font-bold'>60000</span>
-                <span className='flex gap-1 items-center text-xs'>
-                    <ArrowUpRight size={18} className='text-green-600'/>
-                </span>
-            </div>
-        </div>
-         <div className='border-r  border-gray-300 m-6'>
-            <div className='flex flex-col space-y-3'>
-                <span className='flex gap-1 items-center dark:text-stone-50 '>
-                    <UserCheckIcon size={18}/>
-                    Customer
-                </span>
-                <span>
-                    4000 Previous Month
-                </span>
-                <span className='text-2xl font-bold'>60000</span>
-                <span className='flex gap-1 items-center text-xs'>
-                    <ShoppingBasket size={18} className='text-green-600'/>
-                </span>
-            </div>
-        </div>
-      
+           
+        </div> 
     </div>
   )
 }
