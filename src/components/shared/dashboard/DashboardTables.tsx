@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,  } from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+// import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { fetchAllProducts } from '@/lib/Actions/product.action'
 import { MarketOrderIcon } from '@hugeicons/core-free-icons'
 import { CalendarDays, ListOrdered } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
@@ -12,7 +13,7 @@ function DashboardTables() {
   
     useEffect(() => {
       async function getData() {
-        const products = await getAllProducts(link);
+        const products = await fetchAllProducts(link);
         setList(products);
       }
       getData();
@@ -35,7 +36,7 @@ function DashboardTables() {
                         <Input placeholder='Search Order... ' className=' rounded-md bg-white'/>
                     </div>
                 </div>
-       
+{/*        
         <Table className=' p-4'>
            <TableHeader className='p-4 bg-gray-50'>
     <TableRow>
@@ -73,7 +74,7 @@ function DashboardTables() {
       <TableCell className="text-right">June 30, 2026</TableCell>
     </TableRow>
   </TableBody>
-        </Table>
+        </Table> */}
          <div className="w-full pt-4 md:pt-6 max-w-md mx-auto flex justify-between items-center">
                 {list.meta.links.map((link: any) => (
                   <Button
