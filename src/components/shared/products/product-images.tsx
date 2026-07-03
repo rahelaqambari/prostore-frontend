@@ -13,7 +13,7 @@ function ProductImages({ images }: { images: any[] }) {
           alt={images[imageIndex]}
           height={300}
           width={300}
-          className="w-full h-full rounded-xl object-fill"
+          className="w-full h-full object-fill"
           unoptimized
         />
       </div>

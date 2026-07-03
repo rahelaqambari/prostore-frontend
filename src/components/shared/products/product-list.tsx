@@ -16,13 +16,13 @@ function ProductList({
 
   return (
     <div className="my-10">
-      <h2 className="text-3xl font-serif mb-4">{title ? title : "Newest Arrivel"}</h2>
+      <h2 className="h2-bold mb-4">{title ? title : "New Arrivals"}</h2>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {productList.data.length > 0 &&
           productList.data
             .slice(0, limit ? limit : productList.data.length)
             .map((product: any) => (
-              <ProductCard key={product.name} product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
       </div>
 

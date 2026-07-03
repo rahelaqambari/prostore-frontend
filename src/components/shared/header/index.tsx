@@ -1,11 +1,10 @@
-
+import { APP_NAME } from "@/constants/index";
 import Image from "next/image";
 import Link from "next/link";
 import ToggleTheme from "./toggle-mode";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, UserIcon } from "lucide-react";
 import Menu from "./menu";
-import { APP_NAME } from "../../../../constants";
 
 function Header() {
   return (
@@ -20,7 +19,7 @@ function Header() {
               width={48}
               priority={true}
             />
-            <span className="hidden lg:block font-serif text-3xl ml-3">
+            <span className="hidden lg:block font-bold text-2xl ml-3">
               {APP_NAME}
             </span>
           </Link>

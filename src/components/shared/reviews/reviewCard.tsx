@@ -1,30 +1,58 @@
-import { Calendar, TimerReset } from 'lucide-react'
-import Image from 'next/image'
-import React from 'react'
-import StarRating from './rating'
-// import { formatDistanceToNow } from 'date-fns'
-function ReviewCard({review}:{review:any}) {
+import React from "react";
+import { formatDistanceToNow } from "date-fns";
+import { Star } from "lucide-react";
+function ReviewCard({ review }: { review: any }) {
+  const commentDate = new Date(review.created_at);
+  console.log(commentDate);
   return (
-    <div  className=' border-b border-stone-400 py-2 flex flex-col gap-4'>
-       <div className=' w-11/12 flex flex-col gap-1'>
-         <div className='  flex items-center'>
-            <Image src="/images/Screenshot 2026-05-14 101305.png" alt='N' className='p-1 text-white rounded-full' height={40} width={40} />
-            <h2 className=' text-stone-500'>By: {review.user_name}</h2>
+    <div className="flex w-full justify-between p-4 border rounded-md">
+      <div className="flex-1">
+        <div className="flex flex-col space-y-2 text-sm">
+          <span>
+            {" "}
+            <span className="p-2  px-3 leading-0 bg-gray-300 text-white rounded-full">
+              {review.user_name.slice(0, 1).toUpperCase()}
+            </span>{" "}
+            {review.user_name}
+          </span>
+          <span className="text-xs text-muted-foreground">
+            {review.user_email}
+          </span>
         </div>
-        <strong className=' text-gray-500'>{review.user_email}</strong>
-       </div>
-        <div className=' w-11/12 mx-auto mt-6'>
-            <StarRating rating={review.rating} />
-        </div>
-        <div className=' w-11/12 mx-auto bg-stone-300/10 border-l-4 border-stone-700 p-6'>
-        <p>{review.comment}</p>
-        </div>
-        <div className=' flex justify-end text-stone-400 items-center w-full'>
-            <Calendar size={20} />
-            {/* {formatDistanceToNow(review.created_at , {addSuffix: true})} */}
-            </div>
+        <p className="my-2 px-2 border-l text-base">{review.comment}</p>
+      </div>
+      {/* [,,,,] */}
+      <div className="flex flex-col items-end space-y-1.5">
+        <h1 className="flex-start">
+          {/* 7 */}
+          {Array.from({ length: 5 }, (_, index) => {
+            let fill =
+              Math.max(
+                Math.min((Number(review.rating) - index * 2) / 2, 1),
+                0,
+              ) * 100;
+
+            return (
+              <div key={index} className="relative ">
+                <span className="w-6 h-6">
+                  <Star className="text-yellow-500" />
+                </span>
+                <span
+                  className="w-6 h-6 absolute top-0 left-0 overflow-hidden"
+                  style={{ width: `${fill}%` }}
+                >
+                  <Star className="text-yellow-500 fill-yellow-500" />
+                </span>
+              </div>
+            );
+          })}
+        </h1>
+        <span className="mt-auto text-xs text-muted-foreground">
+          {formatDistanceToNow(commentDate, { addSuffix: true })}
+        </span>
+      </div>
     </div>
-  )
+  );
 }
 
-export default ReviewCard
+export default ReviewCard;
