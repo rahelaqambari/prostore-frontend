@@ -1,104 +1,79 @@
 "use client";
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useActionState } from "react"
-import { SignUp } from "@/lib/Actions/auth.action"
-import Image from "next/image";
-import { APP_NAME } from "../../../constants";
-// import { useRouter } from "next/router";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { SignUp } from "@/lib/Actions/auth.action";
+import { useRouter } from "next/navigation";
+import React, { useActionState } from "react";
 
-export default function Signup() {
-  const [data, func,pending] = useActionState(SignUp, {
+function page() {
+  const [data, func, pending] = useActionState(SignUp, {
     message: "",
-    status: false
+    status: false,
   });
-  // const router = useRouter();
-  // if (data.status){
-  //   localStorage.setItem("token", data.message.message);
-  //   router.push("/")
-  // }
+  const router = useRouter();
+  if (data.status) {
+    localStorage.setItem("token", data.message.message);
+
+    router.push("/");
+  }
   return (
-    <div className=" w-full h-screen flex justify-center items-center">
-           <Card className="w-full max-w-lg">
-      <CardHeader>
-        <div className="w-full flex justify-between ">
-          {/* <Image src="/images/logo.svg" alt={APP_NAME} className="justify-center items-center mx-auto" height={42} width={42} /> */}
-           <CardTitle className="text-2xl font-serif">Sign Up</CardTitle>
-        </div>
-        <CardDescription>
-          Enter your info below to sign up 
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form action={func}>
-          <div className="flex flex-col gap-6">
-            <div className="grid gap-2">
-              <Label htmlFor="email">Name</Label>
+    <div className="w-full min-h-screen p-4 flex justify-center items-center">
+      <Card className="w-full md:w-5/12 lg:w-4/12">
+        <CardHeader>
+          <CardTitle>
+            <span className="font-bold md:text-2xl uppercase">
+              Sign Up new user
+            </span>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <form action={func} className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="name">name</Label>
+              <Input id="name" name="name" type="text" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="email">email</Label>
+              <Input type="email" id="email" name="email" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="password">Password</Label>
+              <Input type="password" id="password" name="password" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="confirmPassword">Confirm Password</Label>
               <Input
-              name="name"
-                id="name"
-                type="text"
-                placeholder="my name is..."
-                required
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
               />
-            </div>
-             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-              name="email"
-                id="email"
-                type="email"
-                placeholder="email@example.com"
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
-              </div>
-              <Input
-              name="password"
-               id="password" type="password" required />
-            </div>
-             <div className="grid gap-2">
-              <Label htmlFor="email">Confirm Passwrod</Label>
-              <Input
-              name="confirmpassword"
-                id="confirmpassword"
-                type="confirmpassword"
-                required
-              />
-            </div>
-              {!data.status && data.message ==='passwords not match' && (
+              {!data.status && data.message == "not match" && (
                 <div>
-                  <span className="text-sm text-red-600">the password not match</span>
+                  <span className="text-sm text-red-500">
+                    The passwords not matched
+                  </span>
                 </div>
               )}
-              <div className="grid gap-2">
-              <Label htmlFor="phone_number">Phone Number</Label>
-              <Input
-              name="phone_number"
-                id="phone_number"
-                type="phone_number"
-                placeholder="+ 93 "
-                required
-              />
-              </div>
             </div>
-        <Button disabled={pending}  type="submit" className="w-full my-3">
-          {pending ?'Signing Up' : 'Sign Up'}
-        </Button>
-        </form>
-      </CardContent>
-    </Card>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="phoneNumber">Phone Number</Label>
+              <Input
+                type="text"
+                id="phoneNumber"
+                name="phone_number"
+                className="w-full"
+              />
+            </div>
+            <Button disabled={pending} type="submit">
+              {pending ? "Signing Up..." : "Sign Up"}
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
     </div>
-  )
+  );
 }
+
+export default page;

@@ -1,12 +1,11 @@
 import ProductImages from "@/components/shared/products/product-images";
 import ProductPrice from "@/components/shared/products/product-price";
-import InputComment from "@/components/shared/reviews/Comment_input";
+import ReviewForm from "@/components/shared/reviews/reviews-form";
 import ReviewList from "@/components/shared/reviews/reviews-list";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getProducts } from "@/lib/actions/product.action";
 import { getReviews } from "@/lib/actions/review.action";
-
 
 async function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -24,7 +23,7 @@ async function page({ params }: { params: Promise<{ id: string }> }) {
         <div className="col-span-2">
           <ProductImages images={product.images} />
         </div>
-        <div className="col-span-2 p-4      space-y-4 ">
+        <div className="col-span-2 space-y-4 ">
           <p>{product.description}</p>
           <div>
             <div className="px-4 py-1.5  bg-green-300 rounded-full w-fit">
@@ -59,9 +58,9 @@ async function page({ params }: { params: Promise<{ id: string }> }) {
           )}
         </div>
       </div>
-      <div className="w-full grid grid-cols-1 md:grid-cols-2">
+      <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-2">
         <ReviewList reviews={foundReviews} />
-        <div><InputComment/></div>
+        <ReviewForm />
       </div>
     </div>
   );

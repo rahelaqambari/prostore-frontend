@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     absolute: APP_NAME,
   },
 
-  description: APP_DESCRIPTION,
+  description: APP_DESCRIPTION ,
 };
 
 export default function RootLayout({

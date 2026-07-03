@@ -1,10 +1,11 @@
-import { APP_NAME } from "@/constants/index";
+
 import Image from "next/image";
 import Link from "next/link";
 import ToggleTheme from "./toggle-mode";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, UserIcon } from "lucide-react";
 import Menu from "./menu";
+import { APP_NAME } from "../../../../constants";
 
 function Header() {
   return (

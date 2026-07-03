@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { fetchAllProducts } from "@/lib/actions/product.action";
+import { fetchAllProducts } from "@/lib/Actions/product.action";
 import React, { useEffect, useState } from "react";
 
 function AllProduct() {
