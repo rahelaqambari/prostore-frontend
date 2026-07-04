@@ -6,14 +6,23 @@ import React from 'react'
 function page() {
   return (
     <div className='w-full h-screen flex items-center justify-center'>
-        <div className='w-1/12 h-fit'>
-            <form  className="flex flex-col gap-3 border w-full p-4 rounded-md">
+        <div className='w-10/12 h-fit'>
+        <h1 className='text-2xl font-serif'>ADD NEW Product</h1>
+            <form  className="grid grid-cols-2 gap-3 border w-full p-4 rounded-md">
             <div className="flex flex-col gap-2">
               <Label htmlFor="name">Product Name</Label>
               <Input id="name" name="name" type="text" />
             </div>
             <div className="flex flex-col gap-2">
               <Label htmlFor="email">Product Price</Label>
+              <Input type="email" id="email" name="email" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="email">Product Brand</Label>
+              <Input type="email" id="email" name="email" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="email">Product Category</Label>
               <Input type="email" id="email" name="email" />
             </div>
             <div className="flex flex-col gap-2">
@@ -28,12 +37,11 @@ function page() {
                 name="confirmPassword"
               />      
             </div>
-            <Button type="submit">
-             Add
-            </Button>
+           <Button className="bg-black text-white px-4 py-2 rounded">
+  Add
+</Button>
           </form>
         </div>
-      
     </div>
   )
 }

@@ -15,3 +15,14 @@ export async function fetchAllProducts() {
   const response = await data.json();
   return response.products.data;
 }
+
+export async function storeProduct() {
+  const data = await fetch("http://localhost:8000/api/dashboard/store-product",{
+    body: FormData,
+        headers:{
+            accept : "application/json",
+        },
+        method: "POST"
+  });
+
+}
