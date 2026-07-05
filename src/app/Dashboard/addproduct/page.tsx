@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 import React from 'react'
 
 function page() {
@@ -14,27 +15,39 @@ function page() {
               <Input id="name" name="name" type="text" />
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="email">Product Price</Label>
-              <Input type="email" id="email" name="email" />
+              <Label htmlFor="price">Product Price</Label>
+              <Input type="price" id="price" name="price" />
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="email">Product Brand</Label>
-              <Input type="email" id="email" name="email" />
+              <Label htmlFor="stock">Product stock</Label>
+              <Input type="stock" id="stock" name="stock" />
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="email">Product Category</Label>
-              <Input type="email" id="email" name="email" />
+              <Label htmlFor="brand">Product brand</Label>
+              <Input type="brand" id="brand" name="brand" />
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="password">Man Date</Label>
-              <Input type="password" id="password" name="password" />
+              <Label htmlFor="category">Product Category</Label>
+              <Input type="category" id="category" name="category" />
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="confirmPassword">Expire Date</Label>
+              <Label htmlFor="man_date">Man Date</Label>
+              <Input type="date" id="man_date" name="man_date" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="expire_date">Expire Date</Label>
               <Input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
+                type="date"
+                id="expire_date"
+                name="expire_date"
+              />      
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="description">Description</Label>
+              <Textarea
+              className='w-fit p-1 h-32 resize-none'
+                id="description"
+                name="description"
               />      
             </div>
            <Button className="bg-black text-white px-4 py-2 rounded">

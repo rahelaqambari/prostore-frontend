@@ -18,9 +18,10 @@ export async function fetchAllProducts() {
 
 export async function storeProduct() {
   const data = await fetch("http://localhost:8000/api/dashboard/store-product",{
-    body: FormData,
+    // body: FormData,
         headers:{
             accept : "application/json",
+            'authorization' : 'bearer'
         },
         method: "POST"
   });
