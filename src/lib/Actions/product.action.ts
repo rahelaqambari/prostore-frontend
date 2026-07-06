@@ -16,9 +16,17 @@ export async function fetchAllProducts() {
   return response.products.data;
 }
 
-export async function storeProduct() {
+export async function storeProduct(preves:unknown , formData:FormData) {
+  const formdata = {
+    'name'.FormData.get('product_name'),
+    'price'.FormData.get('product_price'),
+    'category'.FormData.get('product_category'),
+    'brand'.FormData.get('product_brand'),
+    'description'.FormData.get('product_description'),
+    'stock'.FormData.get('product_stock'),
+  }
   const data = await fetch("http://localhost:8000/api/dashboard/store-product",{
-    // body: FormData,
+    body: formdata,
         headers:{
             accept : "application/json",
             'authorization' : 'bearer'
