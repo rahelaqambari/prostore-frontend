@@ -13,7 +13,7 @@ function ProductForm() {
     });
   return (
     <div>
-        <form action={action} >
+        <form action={action}  encType='multipart-form-data'>
                 <div className='w-full grid grid-cols-1 gap-3 md:gap-4 md:grid-cols-2'>
                 <div className='flex flex-col  gap-3'>
                     <Label htmlFor="product_name" >Product Name</Label>
@@ -56,19 +56,21 @@ function ProductForm() {
                 />
                 </div>
                 <div className='flex flex-col gap-3'>
-                    <Label htmlFor="man_date" >Manifucturer Date</Label>
+                    <Label htmlFor="image1" >Product Image 1</Label>
                 <Input 
-                type='date' 
-                id='man_date'
-                name='man_date' 
+                accept='image/*'
+                type='file' 
+                id='image1'
+                name='image1' 
                 />
                 </div>
                 <div className='flex flex-col gap-3'>
-                    <Label htmlFor="exp_date" >Expire Date</Label>
+                    <Label htmlFor="image2" >Product Image 2</Label>
                 <Input 
-                type='date' 
-                id='exp_date' 
-                name='exp_date' 
+                accept='image/*'
+                type='file' 
+                id='image2' 
+                name='image2' 
                 />
                 </div>
                 <div className='flex flex-col gap-3'>
