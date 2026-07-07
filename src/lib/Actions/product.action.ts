@@ -1,5 +1,6 @@
+'use server'
 export async function getProducts() {
-  const data = await fetch(`http://localhost:8000/api/products`);
+  const data = await fetch(`http://localhost:8000/api/Product`);
   const response = await data.json();
   return response;
 }
@@ -9,7 +10,6 @@ export async function getAllProducts(url: string) {
   const response = await data.json();
   return response;
 }
-
 export async function fetchAllProducts() {
   const data = await fetch("http://localhost:8000/api/dashboard/all-products");
   const response = await data.json();
@@ -18,20 +18,35 @@ export async function fetchAllProducts() {
 
 export async function storeProduct(preves:unknown , formData:FormData) {
   const formdata = {
-    name: formData.get("product_name"),
+    name: formData.get('product_name'),
     price: formData.get('product_price'),
-    category: formData.get('product_category'),
-    brand: formData.get('product_brand'),
-    description: formData.get ('product_description'),
     stock: formData.get('product_stock'),
+    brand: formData.get('product_brand'),
+    category: formData.get('product_category'),
+    description: formData.get('product_description'),
+    man_date: formData.get('man_date'),
+    expire_date: formData.get('expire_date'),
   }
-  const data = await fetch("http://localhost:8000/api/dashboard/store-product",{
-    body: formdata,
-        headers:{
-            accept : "application/json",
-            'authorization' : 'bearer'
-        },
-        method: "POST"
-  });
-
+  const data = await fetch("http://localhost:8000/api/products",{ 
+     method: 'POST',
+          
+    headers:{
+             accept : "application/json",
+            'Content-Type': 'application/json',
+    },
+      body: JSON.stringify(formdata),
+});
+  if(data.status === 200){
+    console.log('data inserted')
+    return {
+      data: "data inserted successfully",
+      status: true
+    }
+  }
+  else 
+    return {
+  data: "somethng went wrong",
+  status: false
 }
+  
+  }
