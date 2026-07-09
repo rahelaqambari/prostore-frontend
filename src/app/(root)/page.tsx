@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import ProductList from "@/components/shared/products/product-list";
-import { getProducts } from "@/lib/actions/product.action";
+import { getProducts } from "@/lib/Actions/product.action";
 import Image from "next/image";
 
 export default async function Home() {
