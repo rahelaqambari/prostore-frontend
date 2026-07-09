@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from 'react'
-import ProductMainSection from './productMainSection';
+
 import DashboardSidebar from '@/components/shared/dashboard/Sidebar';
+import CustomerMainSection from './customerMainSeaction';
 
 function AddCustomer() {
     const [showText,setShowText]=useState(true);
@@ -10,7 +11,7 @@ function AddCustomer() {
       <div className={`${showText ? "w-3xs hidden md:block " : "w-fit"}`}>
         <DashboardSidebar showText={showText} />
       </div>
-        <ProductMainSection setShowtext={setShowText} showText={showText} />
+        <CustomerMainSection setShowtext={setShowText} showText={showText} />
     </div>
   )
 }
