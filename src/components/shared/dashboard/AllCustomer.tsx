@@ -11,7 +11,7 @@ import {
 import { fetchAllProducts } from "@/lib/Actions/product.action";
 import React, { useEffect, useState } from "react";
 
-function AllProduct() {
+function AllCustomer() {
   const [products, setProducts] = useState<
     | {
         id: number;
@@ -22,7 +22,7 @@ function AllProduct() {
     | null
   >(null);
   useEffect(() => {
-    async function getProducts() {
+    async function AllUser() {
       const data = await fetchAllProducts();
 
       setProducts(data);
@@ -61,4 +61,4 @@ function AllProduct() {
   );
 }
 
-export default AllProduct;
+export default AllCustomer;

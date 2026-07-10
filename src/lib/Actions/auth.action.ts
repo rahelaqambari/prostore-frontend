@@ -96,3 +96,17 @@ export async function CreateToken(preves:unknown , formData:FormData) {
     }
     
 }
+
+
+export async function AllUser(token:string) {
+    const data = await fetch(`http://localhost:8000/api/user`,{
+         headers:{
+            accept : "application/json",
+        },
+        method: "POST"
+    });
+    const response = await data.json();
+
+    return response;
+    
+}
