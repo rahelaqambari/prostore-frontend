@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 import DashboardSidebar from '@/components/shared/dashboard/Sidebar';
-import CustomerMainSection from './customerMainSeaction';
+import CustomerMainSection from '@/components/shared/dashboard/customerMainSeaction';
 
 function AddCustomer() {
     const [showText,setShowText]=useState(true);

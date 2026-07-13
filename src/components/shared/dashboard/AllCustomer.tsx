@@ -8,50 +8,88 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { Button } from '@base-ui/react';
+
 // import { FeatchAllCustomer } from "@/lib/Actions/auth.action";
 import React, { useEffect, useState } from "react";
+import { getAllUsers } from "@/lib/Actions/customer.action";
 
 function AllCustomer() {
-  const [products, setProducts] = useState<
-    | {
-        id: number;
-        name: string;
-        email: string;
-        role: string;
-      }[]
-    | null
-  >(null);
-  // useEffect(() => {
-  //   async function AllUser() {
-  //     const data = await FeatchAllCustomer();
-
-  //     setProducts(data.data);
-  //   }
-  //   AllUser();
-  // }, []);
-  if (!products) {
+  const [users, setuser] = useState<
+      | {
+          id: number;
+          name: string;
+          email: string;
+          role: string;
+        }[]
+      | null
+    >(null);
+  useEffect(() => {
+    async function AllUser() {
+      const data = await getAllUsers();
+      setuser(data.data);
+    }
+    AllUser();
+  }, []);
+  if (!users) {
     return;
   }
   return (
-    <div className="max-w-6xl overflow-x-auto mx-auto">
+     <div className="w-7xl overflow-x-auto mx-auto">
       <Table className="w-full">
-        <TableCaption>All products</TableCaption>
+        <TableCaption>List of All User</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Id</TableHead>
             <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
             <TableHead>Role</TableHead>
+            <TableHead>Update</TableHead>
+            <TableHead>Delete</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {products.map((x) => {
+          {users?.map((x) => {
             return (
               <TableRow key={x.id}>
                 <TableCell>{x.id}</TableCell>
                 <TableCell>{x.name}</TableCell>
                 <TableCell>{x.email}</TableCell>
                 <TableCell>{x.role}</TableCell>
+                <TableCell>
+                  <Button variant="secondary">Update</Button>
+                </TableCell>
+                <TableCell>
+                  <AlertDialog>
+  <AlertDialogTrigger render={<Button variant="outline" />}>
+    Delete
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+      <AlertDialogDescription>
+        This action cannot be undone. This will permanently delete this user
+        from our servers.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+                </TableCell>
               </TableRow>
             );
           })}
