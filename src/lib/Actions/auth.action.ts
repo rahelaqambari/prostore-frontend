@@ -98,8 +98,8 @@ export async function CreateToken(preves:unknown , formData:FormData) {
 }
 
 
-export async function AllUser(token:string) {
-    const data = await fetch(`http://localhost:8000/api/user`,{
+export async function FeatchAllCustomer(token:string) {
+    const data = await fetch(`http://localhost:8000/api/all-user`,{
          headers:{
             accept : "application/json",
         },

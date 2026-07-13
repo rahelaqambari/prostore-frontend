@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { fetchAllProducts } from "@/lib/Actions/product.action";
+// import { FeatchAllCustomer } from "@/lib/Actions/auth.action";
 import React, { useEffect, useState } from "react";
 
 function AllCustomer() {
@@ -21,14 +21,14 @@ function AllCustomer() {
       }[]
     | null
   >(null);
-  useEffect(() => {
-    async function AllUser() {
-      const data = await fetchAllProducts();
+  // useEffect(() => {
+  //   async function AllUser() {
+  //     const data = await FeatchAllCustomer();
 
-      setProducts(data);
-    }
-    getProducts();
-  }, []);
+  //     setProducts(data.data);
+  //   }
+  //   AllUser();
+  // }, []);
   if (!products) {
     return;
   }
@@ -38,20 +38,20 @@ function AllCustomer() {
         <TableCaption>All products</TableCaption>
         <TableHeader>
           <TableRow>
+            <TableHead>Id</TableHead>
             <TableHead>Name</TableHead>
-            <TableHead>Price</TableHead>
-            <TableHead>Manafacturer Date</TableHead>
-            <TableHead>Expire Date</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead>Role</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {products.map((x) => {
             return (
               <TableRow key={x.id}>
+                <TableCell>{x.id}</TableCell>
                 <TableCell>{x.name}</TableCell>
-                <TableCell>{x.price}</TableCell>
-                <TableCell>{x.man_date.toString()}</TableCell>
-                <TableCell>{x.expire_date.toString()}</TableCell>
+                <TableCell>{x.email}</TableCell>
+                <TableCell>{x.role}</TableCell>
               </TableRow>
             );
           })}
