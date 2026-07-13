@@ -20,12 +20,15 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from '@base-ui/react';
-
-// import { FeatchAllCustomer } from "@/lib/Actions/auth.action";
-import React, { useEffect, useState } from "react";
-import { getAllUsers } from "@/lib/Actions/customer.action";
+import React, { useActionState, useEffect, useState } from "react";
+import { deleteUser, getAllUsers } from "@/lib/Actions/customer.action";
 
 function AllCustomer() {
+  const [data, action] = useActionState(deleteUser,{
+    message: "",
+    state: false,
+  });
+ 
   const [users, setuser] = useState<
       | {
           id: number;
@@ -46,8 +49,8 @@ function AllCustomer() {
     return;
   }
   return (
-     <div className="w-7xl overflow-x-auto mx-auto">
-      <Table className="w-full">
+     <div className="w-full overflow-x-auto mx-auto">
+      <Table className="w-full mx-auto  border ">
         <TableCaption>List of All User</TableCaption>
         <TableHeader>
           <TableRow>
@@ -59,11 +62,11 @@ function AllCustomer() {
             <TableHead>Delete</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody >
           {users?.map((x) => {
             return (
               <TableRow key={x.id}>
-                <TableCell>{x.id}</TableCell>
+                <TableCell className="p-5">{x.id}</TableCell>
                 <TableCell>{x.name}</TableCell>
                 <TableCell>{x.email}</TableCell>
                 <TableCell>{x.role}</TableCell>
