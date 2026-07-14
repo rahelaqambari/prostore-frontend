@@ -1,5 +1,4 @@
 "use client";
-
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -23,7 +22,6 @@ import {
 import { deleteUser, getAllUsers } from "@/lib/Actions/customer.action";
 import { Users2 } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import React, { useActionState, useEffect, useState } from "react";
 
 function AllCustomers() {
@@ -34,11 +32,11 @@ function AllCustomers() {
   const [links, setLinks] = useState([]);
   const [users, setUsers] = useState<any>();
   const [url, setUrl] = useState(
-    "http://localhost:8000/api/dashboard/all-users?page=1",
+    "http://localhost:8000/api/dashboard/all-user?page=1",
   );
   useEffect(() => {
     async function getUsers() {
-      const data = await getAllUsers();
+      const data = await getAllUsers(url);
       setUsers(data);
       setLinks(data.meta.links);
     }
@@ -157,141 +155,51 @@ export default AllCustomers;
 
 
 
-// "use client";
+// import { Button } from "@/components/ui/button"
 // import {
-//   Table,
-//   TableBody,
-//   TableCaption,
-//   TableCell,
-//   TableHead,
-//   TableHeader,
-//   TableRow,
-// } from "@/components/ui/table";
-// import {
-//   AlertDialog,
-//   AlertDialogAction,
-//   AlertDialogCancel,
-//   AlertDialogContent,
-//   AlertDialogDescription,
-//   AlertDialogFooter,
-//   AlertDialogHeader,
-//   AlertDialogTitle,
-//   AlertDialogTrigger,
-// } from "@/components/ui/alert-dialog"
-// import { Button, Input } from '@base-ui/react';
-// import React, { useActionState, useEffect, useState } from "react";
-// import { deleteUser, getAllUsers } from "@/lib/Actions/customer.action";
+//   Dialog,
+//   DialogClose,
+//   DialogContent,
+//   DialogDescription,
+//   DialogFooter,
+//   DialogHeader,
+//   DialogTitle,
+//   DialogTrigger,
+// } from "@/components/ui/dialog"
+// import { Field, FieldGroup } from "@/components/ui/field"
+// import { Input } from "@/components/ui/input"
+// import { Label } from "@/components/ui/label"
 
-// function AllCustomer() {
-//   const [data, action] = useActionState(deleteUser,{
-//     message: "",
-//     state: false,
-//   });
-//   const [users, setuser] = useState<
-//       | {
-//           id: number;
-//           name: string;
-//           email: string;
-//           role: string;
-//         }[]
-//       | null
-//     >(null);
-//      const [links, setLinks] = useState<|{
-//       url: string,
-//       label: 'string',
-//       page: number,
-//       active: boolean
-//      }[]|null>(null);
-//      const [href,sethref] = useState('http://localhost:8000/api/dashboard/all-user/page=1');
-//   useEffect(() => {
-//     async function AllUser() {
-//       const data = await getAllUsers();
-//       setuser(data.data);
-//       setLinks(data.meta.links)
-//     }
-//     AllUser();
-//   }, [href]);
-//   if (!users) {
-//     return;
-//   }
+// export function DialogDemo() {
 //   return (
-//      <div className="w-full overflow-x-auto mx-auto">
-//       <Table className="w-full mx-auto  border ">
-//         <TableCaption>List of All User</TableCaption>
-//         <TableHeader>
-//           <TableRow>
-//             <TableHead>Id</TableHead>
-//             <TableHead>Name</TableHead>
-//             <TableHead>Email</TableHead>
-//             <TableHead>Role</TableHead>
-//             <TableHead>Update</TableHead>
-//             <TableHead>Delete</TableHead>
-//           </TableRow>
-//         </TableHeader>
-//         <TableBody >
-//           {users?.map((x) => {
-//             return (
-//               <TableRow key={x.id}>
-//                 <TableCell className="p-5">{x.id}</TableCell>
-//                 <TableCell>{x.name}</TableCell>
-//                 <TableCell>{x.email}</TableCell>
-//                 <TableCell>{x.role}</TableCell>
-//                 <TableCell>
-//                   <Button variant="secondary">Update</Button>
-//                 </TableCell>
-//                 <TableCell>
-//                   <AlertDialog>
-//   <AlertDialogTrigger render={<Button variant="outline" />}>
-//     Delete
-//   </AlertDialogTrigger>
-//   <AlertDialogContent>
-//     <form action={action}>
-//       <Input 
-//       type="text"
-//       name="id"
-//       defaultValue={x.id}
-//       className="hidden"
-//        />
-//     <AlertDialogHeader>
-//       <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-//       <AlertDialogDescription>
-//         This action cannot be undone. This will permanently delete this user
-//         from our servers.
-//       </AlertDialogDescription>
-//     </AlertDialogHeader>
-//     <AlertDialogFooter>
-//       <AlertDialogCancel>Cancel</AlertDialogCancel>
-//       <AlertDialogAction>Continue</AlertDialogAction>
-//     </AlertDialogFooter>
-//     </form>
-//   </AlertDialogContent>
-// </AlertDialog>
-//                 </TableCell>
-//               </TableRow>
-//             );
-//           })}
-//         </TableBody>
-//       </Table>
-    
-//            {links && <div className="w-full pt-4 md:pt-6 max-w-md mx-auto flex justify-between items-center">
-//         {links.map((link) => (
-//           <Button
-//           key={link.label}
-//             onClick={() =>
-//               sethref(
-//                 link.url
-//                   ? link.url
-//                   : `http://localhost:8000/api/all-user?page=1`,
-//               )
-//             }
-//             key={link.label}
-//             variant={link.active ? "default" : "outline"}
-//             dangerouslySetInnerHTML={{ __html: link.label }}
-//           />
-//         ))} 
-//       </div> }
-//     </div>
-//   );
+//     <Dialog>
+//       <form>
+//         <DialogTrigger render={<Button variant="outline">Open Dialog</Button>} />
+//         <DialogContent className="sm:max-w-sm">
+//           <DialogHeader>
+//             <DialogTitle>Edit profile</DialogTitle>
+//             <DialogDescription>
+//               Make changes to your profile here. Click save when you&apos;re
+//               done.
+//             </DialogDescription>
+//           </DialogHeader>
+//           <FieldGroup>
+//             <Field>
+//               <Label htmlFor="name-1">Name</Label>
+//               <Input id="name-1" name="name" defaultValue="Pedro Duarte" />
+//             </Field>
+//             <Field>
+//               <Label htmlFor="username-1">Username</Label>
+//               <Input id="username-1" name="username" defaultValue="@peduarte" />
+//             </Field>
+//           </FieldGroup>
+//           <DialogFooter>
+//             <DialogClose render={<Button variant="outline">Cancel</Button>} />
+//             <Button type="submit">Save changes</Button>
+//           </DialogFooter>
+//         </DialogContent>
+//       </form>
+//     </Dialog>
+//   )
 // }
 
-// export default AllCustomer;
