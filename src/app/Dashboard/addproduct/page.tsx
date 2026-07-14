@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react'
-import ProductMainSection from './productMainSection';
+import ProductMainSection from '../../../components/shared/dashboard/productMainSection';
 import DashboardSidebar from '@/components/shared/dashboard/Sidebar';
 
 function AddProduct() {
