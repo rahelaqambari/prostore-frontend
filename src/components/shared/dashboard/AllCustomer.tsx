@@ -11,6 +11,18 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+ import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Field, FieldGroup } from "@/components/ui/field"
+import { Label } from "@/components/ui/label"
 import {
   Table,
   TableBody,
@@ -36,7 +48,7 @@ function AllCustomers() {
   );
   useEffect(() => {
     async function getUsers() {
-      const data = await getAllUsers(url);
+      const data = await getAllUsers();
       setUsers(data);
       setLinks(data.meta.links);
     }
@@ -46,15 +58,10 @@ function AllCustomers() {
   if (!users) {
     return (
       <div className="max-w-6xl w-full mx-auto flex border rounded-md flex-col">
-        <div className="border-b p-4 w-full">
+        <div className="border-b w-full">
           <span className="text-sm text-muted-foreground flex items-center gap-2">
             <Users2 /> All Customers
           </span>
-        </div>
-        <div className="p-5">
-          <div className="w-full p-5 flex justify-center">
-            <Image src="/loader.gif" alt="loading..." height={70} width={70} />
-          </div>
         </div>
       </div>
     );
@@ -64,13 +71,13 @@ function AllCustomers() {
     /* all customers */
   }
   return (
-    <div className="max-w-6xl w-full mx-auto flex border rounded-md flex-col">
-      <div className="border-b p-4 w-full">
-        <span className="text-sm text-muted-foreground flex items-center gap-2">
+    <div className="w-full mx-auto flex border rounded-md flex-col">
+      <div className="border-b w-full">
+        <span className="text-sm text-muted-foreground flex items-center">
           <Users2 /> All Customers
         </span>
       </div>
-      <div className="p-5">
+      <div >
         <Table>
           <TableHeader>
             <TableRow>
@@ -91,8 +98,43 @@ function AllCustomers() {
                 <TableCell>{user.email}</TableCell>
                 <TableCell>{user.role}</TableCell>
                 <TableCell>{user.phone_number}</TableCell>
-                <TableCell>
-                  <Button variant="secondary">Update</Button>
+                <TableCell className="-mt-32">
+                  {/* <Button variant="secondary">Update</Button> */}
+                   <Dialog>
+      <form>
+        <DialogTrigger asChild><Button variant="outline">Update</Button>
+           </DialogTrigger>
+        <DialogContent className="sm:max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Edit The User</DialogTitle>
+            <DialogDescription>
+              Make changes to your information here. Click save when you&apos;re
+              done.
+            </DialogDescription>
+          </DialogHeader>
+           <FieldGroup>
+             <Field>
+               <Label htmlFor="name">Name</Label>
+               <Input id="name" name="name" defaultValue="Pedro Duarte" />
+             </Field>
+             <Field>
+               <Label htmlFor="email">Email</Label>
+               <Input id="email" name="email" defaultValue="@peduarte" />
+             </Field>
+                <Field>
+               <Label htmlFor="phone_number">Phone</Label>
+               <Input id="phone_number" name="phone_number" defaultValue="@peduarte" />
+             </Field>
+           </FieldGroup>
+          <DialogFooter>
+             <DialogClose asChild>
+              <Button variant="outline">Cancel</Button>
+                </DialogClose>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter>
+        </DialogContent>
+      </form>
+    </Dialog>
                 </TableCell>
                 <TableCell>
                   <AlertDialog>
@@ -127,7 +169,7 @@ function AllCustomers() {
         </Table>
       </div>
       {links && (
-        <div className="w-full flex justify-center items-center gap-2 p-4">
+        <div className="w-full flex justify-center items-center gap-2 p-1">
           {links.map((link: any) => (
             <Button
               variant={link.active ? "default" : "outline"}
@@ -149,57 +191,4 @@ function AllCustomers() {
 }
 
 export default AllCustomers;
-
-
-
-
-
-
-// import { Button } from "@/components/ui/button"
-// import {
-//   Dialog,
-//   DialogClose,
-//   DialogContent,
-//   DialogDescription,
-//   DialogFooter,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog"
-// import { Field, FieldGroup } from "@/components/ui/field"
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
-
-// export function DialogDemo() {
-//   return (
-//     <Dialog>
-//       <form>
-//         <DialogTrigger render={<Button variant="outline">Open Dialog</Button>} />
-//         <DialogContent className="sm:max-w-sm">
-//           <DialogHeader>
-//             <DialogTitle>Edit profile</DialogTitle>
-//             <DialogDescription>
-//               Make changes to your profile here. Click save when you&apos;re
-//               done.
-//             </DialogDescription>
-//           </DialogHeader>
-//           <FieldGroup>
-//             <Field>
-//               <Label htmlFor="name-1">Name</Label>
-//               <Input id="name-1" name="name" defaultValue="Pedro Duarte" />
-//             </Field>
-//             <Field>
-//               <Label htmlFor="username-1">Username</Label>
-//               <Input id="username-1" name="username" defaultValue="@peduarte" />
-//             </Field>
-//           </FieldGroup>
-//           <DialogFooter>
-//             <DialogClose render={<Button variant="outline">Cancel</Button>} />
-//             <Button type="submit">Save changes</Button>
-//           </DialogFooter>
-//         </DialogContent>
-//       </form>
-//     </Dialog>
-//   )
-// }
 
