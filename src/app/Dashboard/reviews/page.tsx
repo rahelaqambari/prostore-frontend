@@ -1,0 +1,18 @@
+"use client";
+import React, { useState } from 'react'
+import ProductMainSection from '../../../components/shared/dashboard/productMainSection';
+import DashboardSidebar from '@/components/shared/dashboard/Sidebar';
+
+function reviews() {
+    const [showText,setShowText]=useState(true);
+  return (
+      <div className="w-full bg-stone-100 dark:bg-gray-800 min-h-screen flex justify-start gap-1">
+      <div className={`${showText ? "w-3xs hidden md:block " : "w-fit"}`}>
+        <DashboardSidebar showText={showText} />
+      </div>
+       {/*  */}
+    </div>
+  )
+}
+
+export default reviews
