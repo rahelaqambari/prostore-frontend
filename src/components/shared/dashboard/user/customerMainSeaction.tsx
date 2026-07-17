@@ -1,4 +1,4 @@
-import AllCustomer from '@/components/shared/dashboard/AllCustomer';
+import AllCustomer from '@/components/shared/dashboard/user/AllCustomer';
 import DashboardHeader from '@/components/shared/dashboard/DashboardHeader'
 import ProductForm from '@/components/shared/dashboard/ProductForm';
 import { PackagePlus, User } from 'lucide-react';

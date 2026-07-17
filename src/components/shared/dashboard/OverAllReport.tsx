@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import React from "react";
 import MonthlyReviewsReport from "./MonthlyReviewsReport";
-import CustomerReport from "./CustomerReport";
+import CustomerReport from "./user/CustomerReport";
 
 function OverallReport() {
   return (
