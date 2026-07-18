@@ -1,5 +1,9 @@
 "use server";
-
+export async function getAllReviews(): Promise<any>{
+    const data = await fetch("http://localhost:8000/api/dashboard/all-review");
+    const response = await data.json();
+    return response;
+}
 export async function getReviews() {
   const data = await fetch("http://localhost:8000/api/reviews");
   const response = await data.json();
