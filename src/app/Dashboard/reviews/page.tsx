@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import ProductMainSection from '../../../components/shared/dashboard/productMainSection';
 import DashboardSidebar from '@/components/shared/dashboard/Sidebar';
+import ReviewMainSection from '@/components/shared/dashboard/review/ReviewMainSecion';
 
 function reviews() {
     const [showText,setShowText]=useState(true);
@@ -10,7 +11,7 @@ function reviews() {
       <div className={`${showText ? "w-3xs hidden md:block " : "w-fit"}`}>
         <DashboardSidebar showText={showText} />
       </div>
-       {/*  */}
+       <ReviewMainSection showText={showText} setShowtext={setShowText}/>
     </div>
   )
 }

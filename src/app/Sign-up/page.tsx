@@ -15,6 +15,7 @@ function page() {
   const router = useRouter();
   if (data.status) {
     localStorage.setItem("token", data.message.message);
+    // cookies.set("token",data.message.message,{expires: 7})
 
     router.push("/");
   }

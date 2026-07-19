@@ -38,10 +38,10 @@ import React, { useActionState, useEffect, useState } from "react";
 import { getAllReviews } from "@/lib/Actions/review.action";
 
 function AllReview() {
-  const [data, action] = useActionState(deleteUser, {
-    message: "",
-    state: false
-  });
+//   const [data, action] = useActionState(deleteUser, {
+//     message: "",
+//     state: false
+//   });
   const [links, setLinks] = useState([]);
   const [users, setUsers] = useState<any>();
   const [url, setUrl] = useState(
@@ -75,7 +75,7 @@ function AllReview() {
     <div className="w-full mx-auto flex border rounded-md flex-col">
       <div className="border-b w-full">
         <span className="text-sm text-muted-foreground flex items-center">
-          <Users2 /> All Customers
+          <Users2 /> All Reviews
         </span>
       </div>
       <div >
@@ -83,24 +83,26 @@ function AllReview() {
           <TableHeader>
             <TableRow>
               <TableHead className="font-bold">ID</TableHead>
-              <TableHead className="font-bold">Name</TableHead>
-              <TableHead className="font-bold">Email</TableHead>
-              <TableHead className="font-bold">Role</TableHead>
-              <TableHead className="font-bold">Phone Number</TableHead>
-              <TableHead className="font-bold">Update</TableHead>
-              <TableHead className="font-bold">Delete</TableHead>
+              <TableHead className="font-bold">Product Name</TableHead>
+              <TableHead className="font-bold">User Email</TableHead>
+              <TableHead className="font-bold">User Name</TableHead>
+              <TableHead className="font-bold">Comment</TableHead>
+              <TableHead className="font-bold">Rating</TableHead>
+              {/* <TableHead className="font-bold">Update</TableHead>
+              <TableHead className="font-bold">Delete</TableHead> */}
             </TableRow>
           </TableHeader>
           <TableBody>
             {users?.data.map((user: any) => (
               <TableRow key={user.id}>
                 <TableCell>{user.id}</TableCell>
-                <TableCell>{user.name}</TableCell>
-                <TableCell>{user.email}</TableCell>
-                <TableCell>{user.role}</TableCell>
-                <TableCell>{user.phone_number}</TableCell>
-                <TableCell className="-mt-32">
-                  {/* <Button variant="secondary">Update</Button> */}
+                <TableCell>{user.product_name}</TableCell>
+                <TableCell>{user.user_email}</TableCell>
+                <TableCell>{user.user_name}</TableCell>
+                <TableCell>{user.comment}</TableCell>
+                <TableCell>{user.rating}</TableCell>
+                {/* <TableCell className="-mt-32">
+                    <Button variant="secondary">Update</Button> 
                    <Dialog>
       <form>
         <DialogTrigger asChild><Button variant="outline">Update</Button>
@@ -163,9 +165,9 @@ function AllReview() {
                       </form>
                     </AlertDialogContent>
                   </AlertDialog>
-                </TableCell>
+                </TableCell> */}
               </TableRow>
-            ))}
+             ))}
           </TableBody>
         </Table>
       </div>
