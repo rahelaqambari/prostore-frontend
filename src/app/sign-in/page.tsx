@@ -22,6 +22,7 @@ function LoginPage() {
   });
   if (state.data !== "something went wrong") {
     localStorage.setItem("token", state.data);
+    // cookies.set("token",state.data,{expires: 7})
   }
   return (
     <div className="min-h-screen w-full flex justify-center items-center">
