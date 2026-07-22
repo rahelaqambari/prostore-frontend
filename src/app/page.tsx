@@ -1,11 +1,13 @@
-import React from 'react'
+import ProductList from "@/components/shared/products/product-list";
+import { getProducts } from "@/lib/Actions/product.action";
 
-function page() {
+import { ProductInfo } from "@/types";
+
+export default async function Home() {
+  const data = await getProducts();
   return (
     <div>
-      <h1 className='text-4xl '>Home page</h1>
+      <ProductList limit={data} productList={ProductList} title="Newest Arrival" />
     </div>
-  )
+  );
 }
-
-export default page
