@@ -1,8 +1,17 @@
 "use server";
+
+import { ReturnRequestIcon } from "@hugeicons/core-free-icons";
+import { Festive } from "next/font/google";
+
 export async function getAllReviews(): Promise<any>{
     const data = await fetch("http://localhost:8000/api/dashboard/all-review");
     const response = await data.json();
     return response;
+}
+export async function getsingleReview(){
+  const data = await fetch("http://localhost:8000/api/single-review");
+  const response = await data.json(); 
+  return response;
 }
 export async function getReviews() {
   const data = await fetch("http://localhost:8000/api/reviews");
