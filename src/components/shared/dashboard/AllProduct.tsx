@@ -1,4 +1,15 @@
 "use client";
+ import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -10,6 +21,9 @@ import {
 } from "@/components/ui/table";
 import { fetchAllProducts } from "@/lib/Actions/product.action";
 import React, { useEffect, useState } from "react";
+import { Field, FieldGroup } from "@/components/ui/field";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 
 function AllProduct() {
   const [products, setProducts] = useState<
@@ -54,6 +68,44 @@ function AllProduct() {
                 <TableCell>{x.price}</TableCell>
                 <TableCell>{x.man_date.toString()}</TableCell>
                 <TableCell>{x.expire_date.toString()}</TableCell>
+                <TableCell className="-mt-32">
+                    <Button variant="secondary">Update</Button> 
+                   <Dialog>
+      <form>
+        <DialogTrigger asChild><Button variant="outline">Update</Button>
+           </DialogTrigger>
+        <DialogContent className="sm:max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Edit The User</DialogTitle>
+            <DialogDescription>
+              Make changes to your information here. Click save when you&apos;re
+              done.
+            </DialogDescription>
+          </DialogHeader>
+           <FieldGroup>
+             <Field>
+               <Label htmlFor="name">Name</Label>
+               <Input id="name" name="name" defaultValue="Pedro Duarte" />
+             </Field>
+             <Field>
+               <Label htmlFor="email">Email</Label>
+               <Input id="email" name="email" defaultValue="@peduarte" />
+             </Field>
+                <Field>
+               <Label htmlFor="phone_number">Phone</Label>
+               <Input id="phone_number" name="phone_number" defaultValue="@peduarte" />
+             </Field>
+           </FieldGroup>
+          <DialogFooter>
+             <DialogClose asChild>
+              <Button variant="outline">Cancel</Button>
+                </DialogClose>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter>
+        </DialogContent>
+      </form>
+    </Dialog>
+                </TableCell>
               </TableRow>
             );
           })}
