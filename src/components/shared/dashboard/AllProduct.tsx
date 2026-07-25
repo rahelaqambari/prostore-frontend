@@ -65,6 +65,9 @@ function AllProduct() {
             return (
               <TableRow key={x.id}>
                 <TableCell>{x.name}</TableCell>
+                <TableCell>{x.category}</TableCell>
+                <TableCell>{x.stock}</TableCell>
+                <TableCell>{x.brand}</TableCell>
                 <TableCell>{x.price}</TableCell>
                 <TableCell>{x.man_date.toString()}</TableCell>
                 <TableCell>{x.expire_date.toString()}</TableCell>
