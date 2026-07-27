@@ -9,6 +9,16 @@
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -65,9 +75,9 @@ function AllProduct() {
             return (
               <TableRow key={x.id}>
                 <TableCell>{x.name}</TableCell>
-                <TableCell>{x.category}</TableCell>
+                {/* <TableCell>{x.category}</TableCell>
                 <TableCell>{x.stock}</TableCell>
-                <TableCell>{x.brand}</TableCell>
+                <TableCell>{x.brand}</TableCell> */}
                 <TableCell>{x.price}</TableCell>
                 <TableCell>{x.man_date.toString()}</TableCell>
                 <TableCell>{x.expire_date.toString()}</TableCell>
@@ -109,6 +119,32 @@ function AllProduct() {
       </form>
     </Dialog>
                 </TableCell>
+                 <TableCell>
+                  <AlertDialog>
+                    <AlertDialogTrigger>Delete</AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <form action=''>
+                        <Input
+                          type="number"
+                          name="id"
+                          className="hidden"
+                        />
+                        <AlertDialogHeader>
+                          <AlertDialogTitle>Delete user</AlertDialogTitle>
+                          <AlertDialogDescription>
+                            Are you sure you want to delete?
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel>Cancel</AlertDialogCancel>
+                          <Button type="submit" variant="destructive">
+                            Delete
+                          </Button>
+                        </AlertDialogFooter>
+                      </form>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                </TableCell> 
               </TableRow>
             );
           })}
