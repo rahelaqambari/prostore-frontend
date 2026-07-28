@@ -27,6 +27,23 @@ export async function getUser(token:string) {
     
 }
 
+
+// testing
+export async function getsingelUser(token:string) {
+    const data = await fetch(`http://localhost:8000/api/single-user`,{
+         headers:{
+            accept : "application/json",
+        },
+        method: "POST"
+    });
+    const response = await data.json();
+
+    return response;
+    
+}
+
+
+
 export async function SignUp(preves:unknown , formData:FormData) {
     try{
         const password = formData.get("password");
